@@ -3,9 +3,12 @@
 const Header = () => {
   return (
     <div>
-      <h1>Header</h1>
+      <div className="d-flex justify-content-evenly align-items-center">
+        <h1>Logo</h1>
+        <h1 className = "display-5">My Task Tracker</h1>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;  
