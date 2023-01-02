@@ -1,20 +1,27 @@
-import AddTask from "../components/addTask/AddTask"
-import TaskList from "../components/taskList/TaskList"
-import Button from 'react-bootstrap/Button';
+import AddTask from "../components/addTask/AddTask";
+import TaskList from "../components/taskList/TaskList";
+import Button from "react-bootstrap/Button";
 import { useState } from "react";
 
 const Home = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [text, setText] = useState("Show Task Bar");
 
-const [isOpen, setIsOpen] = useState(false);
-const [text, setText] = useState("Show Task Bar");
+  const toggle = (e) => {
+    setIsOpen(!isOpen)
+    const buttonText = isOpen ? "Show Task Bar" : "Hide Task Bar"
+    setText(buttonText)
+  }  
 
   return (
     <div>
-        <Button variant="danger">Show Task Bar</Button>
-        <AddTask/>
-        <TaskList/>
+      <Button 
+      onClick={(e) => {toggle()}}
+      variant="danger">{text}</Button>
+      <AddTask />
+      <TaskList />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
