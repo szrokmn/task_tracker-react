@@ -16,6 +16,7 @@ const Home = () => {
     setText(buttonText)
   }  
 
+  //CRUD  -READ-
   const getTask = async()=> {
     const { data } = await axios(url)
     setTask(data);
@@ -28,7 +29,7 @@ const Home = () => {
   
 
   return (
-    <div>
+    <div className="d-flex justify-content-center flex-column mt-4">
       <Button 
       onClick={(e) => {toggle()}}
       variant="danger"
@@ -39,7 +40,7 @@ const Home = () => {
 
       { isOpen &&  <AddTask /> }
      
-      <TaskList />
+      <TaskList task ={task}/>
     </div>
   );
 };
