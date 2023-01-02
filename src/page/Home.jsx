@@ -6,6 +6,7 @@ import { useState } from "react";
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [text, setText] = useState("Show Task Bar");
+  const url = "https://63b1642df9a53fa20276f228.mockapi.io/tasks";
 
   const toggle = (e) => {
     setIsOpen(!isOpen)
@@ -17,7 +18,11 @@ const Home = () => {
     <div>
       <Button 
       onClick={(e) => {toggle()}}
-      variant="danger">{text}</Button>
+      variant="danger"
+      size="lg"
+      >
+        {text}
+      </Button>
 
       { isOpen &&  <AddTask /> }
      
