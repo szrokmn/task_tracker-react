@@ -1,7 +1,7 @@
 import AddTask from "../components/addTask/AddTask";
 import TaskList from "../components/taskList/TaskList";
 import Button from "react-bootstrap/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 const Home = () => {
@@ -19,7 +19,13 @@ const Home = () => {
   const getTask = async()=> {
     const { data } = await axios(url)
     setTask(data);
+    console.log(data)
   }
+
+  useEffect(() => {
+    getTask()
+  }, []);
+  
 
   return (
     <div>
