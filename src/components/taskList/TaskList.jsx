@@ -1,8 +1,23 @@
+import {FiDelete} from "react-icons/fi"
 
-
-const TaskList = () => {
+const TaskList = ({ task }) => {
   return (
-    <div>TaskList</div>
+    <div>
+        {task.map((item) => {
+            const {id, task, date} = item;
+            return(
+                <div className="d-flex justify-content-between mt-2 bg-secondary rounded-3 p-3" key = {id}>
+                    <div>
+                        <h4>{task}</h4>
+                        <p>{date}</p>
+                    </div>
+                    <div>
+                        <FiDelete/>
+                    </div>
+                </div>                
+            )
+        })}
+    </div>
   )
 }
 
