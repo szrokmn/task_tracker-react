@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 const Home = () => {
   return (
     <div>
-        <Button variant="danger">Primary</Button>
+        <Button variant="danger">Show Task Bar</Button>
         <AddTask/>
         <TaskList/>
     </div>
