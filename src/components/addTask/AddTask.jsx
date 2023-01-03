@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
-const AddTask = () => {
+const AddTask = ({getTask}) => {
   const [task, setTask] = useState("");
   const [date, setDate] = useState("");
 
@@ -28,7 +28,7 @@ const AddTask = () => {
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Task</Form.Label>
-          <Form.Control type="text" placeholder="Enter Task" onChange={(e) => setTask(e.target.value)} />
+          <Form.Control type="text" placeholder="Enter Task" onChange={(e) => setTask(e.target.value)}/>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
