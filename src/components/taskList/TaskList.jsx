@@ -1,7 +1,7 @@
 import axios from "axios";
 import { FiDelete } from "react-icons/fi";
 
-const TaskList = ({ task }) => {
+const TaskList = ({ task, getTask }) => {
 
 const deleteTask = async(id) => {
   const url = "https://63b1642df9a53fa20276f228.mockapi.io/tasks";
@@ -10,6 +10,7 @@ const deleteTask = async(id) => {
   } catch (error) {
     console.log(error)
   }
+  getTask()
 }
 
   return (
