@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
@@ -10,6 +11,16 @@ const AddTask = () => {
     const newTask = {task, date}
     console.log(task)
     console.log(date)
+    addNewTask(newTask)
+  }
+
+  const addNewTask = async(newTask) => {
+    const url = "https://63b1642df9a53fa20276f228.mockapi.io/tasks";
+    try {
+      await axios.post(url, newTask)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -25,9 +36,11 @@ const AddTask = () => {
           <Form.Control type="date" onChange={(e) => setDate(e.target.value)}/>
         </Form.Group>
 
+        <div className="text-center">
         <Button variant="primary w-50" type="submit">
           SAVE
         </Button>
+        </div>
       </Form>
     </div>
   );
