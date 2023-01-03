@@ -5,9 +5,16 @@ const AddTask = () => {
   const [task, setTask] = useState("");
   const [date, setDate] = useState("");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newTask = {task, date}
+    console.log(task)
+    console.log(date)
+  }
+
   return (
     <div>
-      <Form >
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Task</Form.Label>
           <Form.Control type="text" placeholder="Enter Task" onChange={(e) => setTask(e.target.value)} />
