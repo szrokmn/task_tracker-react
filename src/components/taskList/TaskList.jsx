@@ -1,6 +1,17 @@
+import axios from "axios";
 import { FiDelete } from "react-icons/fi";
 
 const TaskList = ({ task }) => {
+
+const deleteTask = async(id) => {
+  const url = "https://63b1642df9a53fa20276f228.mockapi.io/tasks";
+  try {
+    await axios.delete(`${url}/${id}`)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
   return (
     <div>
       {task.map((item) => {
@@ -16,6 +27,7 @@ const TaskList = ({ task }) => {
             </div>
             <div>
               <FiDelete 
+              onClick={() => deleteTask(id)}
               style = {{
                 cursor:"pointer",
                 marginRight:"20px",

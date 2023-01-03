@@ -12,6 +12,8 @@ const AddTask = ({getTask}) => {
     console.log(task)
     console.log(date)
     addNewTask(newTask)
+    setTask("")
+    setDate("")
   }
 
   const addNewTask = async(newTask) => {
@@ -21,6 +23,7 @@ const AddTask = ({getTask}) => {
     } catch (error) {
       console.log(error)
     }
+    getTask()
   }
 
   return (
